@@ -1,4 +1,4 @@
-import { addition } from "./config.js";
+import { addition, substract } from "./config.js";
 import { Prompts } from "./Prompt.js";
 
 let pr = await new Prompts(
@@ -9,5 +9,6 @@ let pr = await new Prompts(
 if (pr === "1") {
   addition();
 } else {
+  substract();
   console.log("|:");
 }

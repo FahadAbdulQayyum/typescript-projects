@@ -4,17 +4,26 @@ export const addition = async () => {
     console.log("*****");
     let num = 1;
     let input = 0;
-    //   while (num.toString() !== "f") {
-    //   while (num.toString() !== "f") {
-    while (input !== "f") {
-        //   while (typeof num === "string" && num === "f") {
+    while (input !== "s") {
         input = await new Prompts(num.toString(), "string", "Enter your " + num + ": ").showPrompt();
-        if (input === "f") {
-            // if (typeof num === "string" && num === "f") {
-            console.log("FFF", arr.slice(0, arr.length).reduce((a, b) => +b + +a, 0));
+        if (input === "s") {
+            console.log(arr.slice(0, arr.length).reduce((a, b) => +b + +a, 0));
         }
         arr.push(input);
         num++;
     }
-    console.log("arr:::", arr);
+};
+export const substract = async () => {
+    let arr = [];
+    console.log("*****");
+    let num = 1;
+    let input = 0;
+    while (input !== "s") {
+        input = await new Prompts(num.toString(), "string", "Enter your " + num + ": ").showPrompt();
+        if (input === "s") {
+            console.log(arr.slice(0, arr.length).reduce((a, b) => +b - +a, 0));
+        }
+        arr.push(input);
+        num++;
+    }
 };
