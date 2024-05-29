@@ -4,7 +4,7 @@ import { Prompts } from "./Prompt.js";
 let pr = await new Prompts(
   "calculator",
   "string",
-  "Choose:\n1. Addition.\n2. Substract.\n3. Multiplication: "
+  "Choose:\n1. Addition.\n2. Substract.\n3. Multiplication\n4. Division: "
 ).showPrompt();
 if (pr === "1") {
   dynamicCalculation("+");
@@ -12,4 +12,6 @@ if (pr === "1") {
   dynamicCalculation("-");
 } else if (pr === "3") {
   dynamicCalculation("*");
+} else if (pr === "4") {
+  dynamicCalculation("/", false);
 }

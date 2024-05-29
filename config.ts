@@ -1,6 +1,9 @@
 import { Prompts } from "./Prompt.js";
 
-export const dynamicCalculation = async (operator: string) => {
+export const dynamicCalculation = async (
+  operator: string,
+  reverse: boolean = true
+) => {
   let arr = [];
   console.log("*****");
   let num: string | number = 1;
@@ -13,26 +16,31 @@ export const dynamicCalculation = async (operator: string) => {
     ).showPrompt();
     if (input === "s") {
       console.log("ar", arr);
+      let decidedArr = reverse
+        ? arr.slice(0, arr.length).reverse()
+        : arr.slice(0, arr.length);
+      console.log("decidedArr", decidedArr);
+      // operator === "/" && arr.unshift(0);
       console.log(
-        arr
-          .slice(0, arr.length)
-          .reverse()
-          .reduce((a, b) => {
+        decidedArr.reduce(
+          (a, b) => {
             a = Number(a);
             b = Number(b);
             switch (operator) {
               case "+":
-                return a + b;
+                return b + a;
               case "-":
-                return a - b;
+                return b - a;
               case "*":
-                return a * b;
+                return b * a;
               case "/":
-                return a / b;
+                return b / a;
               default:
                 throw new Error("Unsupported operator");
             }
-          }, 1)
+          },
+          operator === "*" ? 1 : operator === "/" ? 1 : 0
+        )
       );
     }
     arr.push(input);
