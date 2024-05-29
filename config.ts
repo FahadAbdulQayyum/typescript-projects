@@ -31,7 +31,13 @@ export const substract = async () => {
       "Enter your " + num + ": "
     ).showPrompt();
     if (input === "s") {
-      console.log(arr.slice(0, arr.length).reduce((a, b) => +b - +a, 0));
+      console.log("ar", arr);
+      console.log(
+        arr
+          .slice(0, arr.length)
+          .reverse()
+          .reduce((a, b) => Number(b) - Number(a), 0)
+      );
     }
     arr.push(input);
     num++;
