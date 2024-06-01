@@ -24,13 +24,15 @@ export const dynamicCalculation = async (operator, reverse = true) => {
                     case "*":
                         return b * a;
                     case "/":
-                        // console.log("///", a);
-                        // return b / (a * b);
-                        return a / (b * b);
+                        return b / a;
+                    case "%":
+                        console.log("a:", a, "b:", b);
+                        // return a % b;
+                        return b % b;
                     default:
                         throw new Error("Unsupported operator");
                 }
-            }, operator === "*" ? 1 : operator === "/" ? 1 : 0));
+            }, operator === "*" ? 1 : operator === "/" ? 1 : operator === "%" ? 1 : 0));
         }
         arr.push(input);
         num++;
